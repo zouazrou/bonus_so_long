@@ -6,7 +6,7 @@
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 14:19:38 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/03/15 17:32:16 by zouazrou         ###   ########.fr       */
+/*   Updated: 2025/03/15 20:52:45 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,12 @@ void	destroy_images(void *mlx, void ***ptr, int size)
 	int	i;
 
 	i = 0;
-	while (i < size + 1)
+	while (i < size)
 	{
 		mlx_destroy_image(mlx, (*ptr)[i]);
 		++i;
 	}
+	free(*ptr);
 }
 
 void	destroy_all(t_game *map, int err)
@@ -74,7 +75,7 @@ void	free_grid(char ***grid, int length)
 
 	i = length;
 	while (i >= 0)
-		safe_free(&(*grid)[i--]);
+		free((*grid)[i--]);
 	free(*grid);
 	*grid = NULL;
 }
