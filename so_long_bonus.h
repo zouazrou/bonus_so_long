@@ -6,7 +6,7 @@
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 10:48:49 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/03/15 15:59:15 by zouazrou         ###   ########.fr       */
+/*   Updated: 2025/03/16 21:00:47 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ int			close_win(t_game *map);
 void		free_grid(char ***grid, int length);
 void		safe_free(char **ptr);
 
-bool		init_img(t_game *map);
 void		put_moves(t_game *map);
 int			ft_length(char *file);
 bool		is_valid_map(t_game *map, char ***gg);
@@ -81,7 +80,18 @@ bool		check_path(char **grid, int l, int w);
 void		do_op(t_game *map, char direction);
 void		game(t_game *map);
 
-// new functions ..
+bool	init_enemy(t_game *map);
+bool	init_exit(t_game *map);
+bool	init_empty_sp(t_game *map);
+bool	init_coll(t_game *map);
+bool	init_player(t_game *map);
+bool	init_by_null(void ***ptr, int size);
 bool	init_ptrs(t_game *map);
+void	init_map(t_game *map, char ***gg, int fd);
+
+void	check_extension(char *filename);
+void	check_handling_errors(int ac, char **av, t_game *map);
+void	animation_bomb(t_game *map, int x, int y);
+int		animation_player(t_game *param);
 
 #endif

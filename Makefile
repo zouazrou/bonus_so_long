@@ -15,7 +15,7 @@ SRC = $(addprefix get_next_line/, get_next_line.c get_next_line_utils.c) \
 
 SRC_BONUS = $(addprefix get_next_line/, get_next_line.c get_next_line_utils.c) \
 			game_bonus.c do_op_bonus.c error_bonus.c \
-				utils_bonus.c check_position_bonus.c so_long_bonus.c initialize_images.c
+				utils_bonus.c check_position_bonus.c init_members.c so_long_bonus.c animation.c initialize_images.c
 
 OBJ = $(SRC:.c=.o)
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
